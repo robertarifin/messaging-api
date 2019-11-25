@@ -36,11 +36,16 @@ const wss = new WebSocket.Server({ server });
 //set the connected clients to app.locals so the api routes can
 //get each instance of connected web socket
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws, request, client) => {
     console.log("Total connected clients:", wss.clients.size);
     app.locals.clients = wss.clients;
+
+    ws.on('close', (ws) => {
+        console.log(`Connection from remoteAddress: ${ws} is terminated`);
+    })
 });
 
+const historyMessage = [];
 
 /**
  * Normalize a port into a number, string, or false.

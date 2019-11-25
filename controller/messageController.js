@@ -10,11 +10,12 @@ const broadcast = (clients, message) => {
         message['status'] = messageTypeConst.FAILED;
 
         Message.create(message).then((data) => {
-            return false
+
         })
         .catch((err) => {
-            return false
         })
+
+        return false;
     }
 
     clients.forEach((client) => {
