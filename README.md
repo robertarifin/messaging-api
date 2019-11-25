@@ -18,7 +18,7 @@ Return a json object of the message
 
 * __Data Params__
 
-    `{"content": ${content}
+    `{"content": ${content}`
 
 * __Success Response:__
 
@@ -99,7 +99,7 @@ Return an json object of an message
 
     __Required:__
 
-    `None`
+    `messageId=[string]`
 
 * __Data Params__
 
