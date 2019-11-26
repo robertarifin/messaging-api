@@ -40,12 +40,14 @@ wss.on('connection', (ws, request, client) => {
     console.log("Total connected clients:", wss.clients.size);
     app.locals.clients = wss.clients;
 
+    ws.on('message', (message) => {
+        console.log(`client send ${message} from client`);
+    })
+
     ws.on('close', (ws) => {
         console.log(`Connection from remoteAddress: ${ws} is terminated`);
     })
 });
-
-const historyMessage = [];
 
 /**
  * Normalize a port into a number, string, or false.
